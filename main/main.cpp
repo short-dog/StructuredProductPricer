@@ -1,12 +1,13 @@
-#include <iomanip>
-#include <iostream>
-#include "src/Bond.h"
-#include "src/Options.h"
+#include "src/StructuredProduct.h"
+#include "src/CSVExport.h"
 
-int main(){
-    std::cout << std::fixed << std::setprecision(2) << Bond::bondPrice(0.065, 0.055, 15, 1000) << std::endl;
-    std::cout << std::fixed << std::setprecision(2) << Options::callOptionPrice(470, 474.84, 1, 0.0543, 0.0);
-
-    //0.8%
+int main() {
+    StructuredProduct strProd;
+    CSVExport::createFile();
+    for (int i = 0; i < 10; i++) {
+        double ratio = static_cast<double>(i)/10;
+        strProd.structuredProductPricing(1000, ratio);
+    }
+    std::ofstream csvFile("csvStructuredExport.csv");
     return 0;
 }

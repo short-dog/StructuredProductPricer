@@ -1,7 +1,6 @@
 //
 // Created by Ben Short on 12/19/23.
 //
-
 #ifndef OPTIONS_H
 #define OPTIONS_H
 

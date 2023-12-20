@@ -11,4 +11,6 @@ add_executable(StructuredProductPricing main/main.cpp
         src/Options.cpp
         src/Options.h
         src/StructuredProduct.cpp
-        src/StructuredProduct.h)
+        src/StructuredProduct.h
+        src/CSVExport.cpp
+        src/CSVExport.h)
