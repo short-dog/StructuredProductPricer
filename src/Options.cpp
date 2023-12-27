@@ -6,9 +6,7 @@
 #ifndef Pi
 #define Pi 3.14159265358979323846264
 #endif
-
-//treasury - inflation = RFR
-//3 month often used
+//treasury - inflation = RFR: 3 month often used
 
 double Options::callOptionPrice(double strikePrice,
     double currentPrice, double monthsToExpiration,

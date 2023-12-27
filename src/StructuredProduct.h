@@ -6,7 +6,6 @@
 #include <string>
 #include <vector>
 
-
 class StructuredProduct {
 public:
     struct StructuredNote {
