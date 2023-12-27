@@ -33,7 +33,7 @@ void StructuredProduct::structuredProductPricing(double totalPrice, double bondT
     double worstOption;
     if(worstEnd > currentPrice) {
         worstOption =  (worstEnd - currentPrice) * optionQuantity;
-    }else worstOption = 0;
+    }else worstOption = -((1 - bondToOptionRatio) * totalPrice);
 
     double bestFinalReturn = (totalCost + bestOption + (bondQuantity * 1000)) - totalPrice;
     double avgFinalReturn = (totalCost + avgOption + (bondQuantity * 1000)) - totalPrice;
@@ -64,4 +64,13 @@ void StructuredProduct::structuredProductPricing(double totalPrice, double bondT
     structuredNote.worstReturns = worstFinalReturn;
 
     structuredNotes.push_back(structuredNote);
+}
+void StructuredProduct::exportCSV() {
+    std::ofstream csvFile("csvStructuredExport.csv");
+    csvFile << cat1 << "," << cat2 << "," << cat3 << "," << cat4 << "," << cat5 << "," << cat6 << "," << cat7 << "," << cat8 << "," << cat9 <<"\n";
+    for (const auto& row : structuredNotes) {
+        csvFile << row.bondPrices << "," << row.optionPrices << "," << row.bondQuantities << "," << row.optionsQuantities << "," <<
+            row.bondCosts << "," << row.optionCosts << "," << row.bestReturns << "," << row.avgReturns << "," <<row.worstReturns << "\n";
+    }
+    csvFile.close();
 }
